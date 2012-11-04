@@ -4,20 +4,21 @@
 %bcond_without	system_ffmpeg	# system FFmpeg (note: upstream does not accept bugs with system ffmpeg)
 
 %define		gstname gst-ffmpeg
-%define		gst_major_ver   0.11
-%define		gst_req_ver	0.11.0
+%define		gst_major_ver   1.0
+%define		gst_req_ver	1.0.0
 
 %include	/usr/lib/rpm/macros.gstreamer
 Summary:	GStreamer Streaming-media framework plug-in using FFmpeg
 Summary(pl.UTF-8):	Wtyczka do środowiska obróbki strumieni GStreamer używająca FFmpeg
 Name:		gstreamer-ffmpeg
-Version:	0.11.2
-Release:	1
+Version:	1.0.2
+Release:	0.1
 # the ffmpeg plugin is LGPL, the postproc plugin is GPL
 License:	GPL v2+ and LGPL v2+
 Group:		Libraries
-Source0:	http://gstreamer.freedesktop.org/src/gst-ffmpeg/%{gstname}-%{version}.tar.bz2
-# Source0-md5:	ff25569972c17aaf943e0eabecc525da
+# Source0:	http://gstreamer.freedesktop.org/src/gst-ffmpeg/%{gstname}-%{version}.tar.bz2
+Source0:	http://cgit.freedesktop.org/gstreamer/gst-ffmpeg/snapshot/%{gstname}-%{version}.tar.bz2
+# Source0-md5:	4a7a394ac5753c71ca9360aeacd37c75
 URL:		http://gstreamer.net/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.10
@@ -71,7 +72,7 @@ najpopularniejsze formaty multimedialne.
 
 %build
 %{__libtoolize}
-%{__aclocal} -I common/m4
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
